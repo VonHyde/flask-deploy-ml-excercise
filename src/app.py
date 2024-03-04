@@ -1,4 +1,4 @@
-import pickle
+from pickle import load
 from flask import Flask, request, render_template
 from sklearn.feature_extraction.text import TfidfVectorizer
 
@@ -6,11 +6,9 @@ app = Flask(__name__)
 
 # Cargar el modelo, el vectorizador y la data desde el archivo .sav
 
-with open("/workspace/flask-deploy-ml-excercise/models/knn_neighbors-6_algorithm-brute_metric-cosine.sav", "rb") as f:
-    knn_model = pickle.load(f)
-    
-with open("/workspace/flask-deploy-ml-excercise/data/processed/total_data.sav", "rb") as f:
-    total_data = pickle.load(f)
+knn_model = load(open("/workspace/flask-deploy-ml-excercise/models/knn_neighbors-6_algorithm-brute_metric-cosine.sav", "rb"))
+
+total_data = load(open("/workspace/flask-deploy-ml-excercise/data/processed/total_data.sav", "rb"))
     
 vectorizer = TfidfVectorizer(token_pattern=r'\b\w+\b', lowercase=True)
 vectorizer.fit(total_data['tags'])
