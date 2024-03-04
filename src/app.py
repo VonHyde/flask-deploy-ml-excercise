@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 # Cargar el modelo, el vectorizador y la data desde el archivo .sav
 
-knn_model = load(open(r"/workspace/flask-deploy-ml-excercise/src/knn_neighbors-6_algorithm-brute_metric-cosine.sav", "rb"))
+knn_model = load(open(r"/workspace/flask-deploy-ml-excercise/src/modelknn.sav", "rb"))
 
 total_data = load(open(r"/workspace/flask-deploy-ml-excercise/src/total_data.sav", "rb"))
     
