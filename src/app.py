@@ -6,9 +6,9 @@ app = Flask(__name__)
 
 # Cargar el modelo, el vectorizador y la data desde el archivo .sav
 
-knn_model = load(open(r"src/modelknn.sav", "rb"))
+knn_model = load(open(r"/knn_neighbors-6_algorithm-brute_metric-cosine.pkl", "rb"))
 
-total_data = load(open(r"src/total_data.sav", "rb"))
+total_data = load(open(r"/total_data.sav", "rb"))
     
 vectorizer = TfidfVectorizer(token_pattern=r'\b\w+\b', lowercase=True)
 vectorizer.fit(total_data['tags'])
